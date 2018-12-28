@@ -11,6 +11,7 @@
         <thead>
           <tr>
               <th>ID</th>
+              <th>Photo</th>
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
@@ -26,7 +27,8 @@
 
            <tr>
                <td>{{$user->id}}</td>
-               <td>{{$user->name}}</td>
+               <td>  <img style="object-fit: cover" height="50" width="50"  src="{{$user->photo ? $user->photo->file : 'http://placehold.it/50x50'}}" alt="" ></td>
+               <td><a href="{{route('admin.users.edit', $user->id) }}">{{$user->name}}</a></td>
                <td>{{$user->email}}</td>
                <td>{{$user->role->name}}</td>
                <td>{{$user->is_active ? 'Active' : 'Not active'}}</td>
